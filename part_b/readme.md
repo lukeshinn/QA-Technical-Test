@@ -29,8 +29,11 @@ Here is an example of expected results for each error code
 }
 ```
 **Response code:** 401 - user is not logged in
+
 **Response code:** 403 - user was authenticaed but issue with certificate is present
+
 **Response code:** 404 - user is logged in but one or more paramaters are invalid
+
 **Response code:** 500 - browser could contain cached credentials
 
 # PUT
@@ -99,6 +102,7 @@ Here is an example of expected results for each error code
 }
 ```
 **Response code:** 401 - game is in progress and is unavailable to be updated
+
 **Response code:** 404 - game has been removed
 
 # DELETE
@@ -113,7 +117,9 @@ Here is an example of expected results for each error code
 |----------|:-------------:|--------------|
 | sqlId |  integer | unique identifier for each coach |
 | gameId |  integer | identifier for game/sport  |
+
 #### Example Response
+
 **Response code:** 200
 ```javascript
 {  }
