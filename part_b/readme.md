@@ -93,9 +93,9 @@ Here is an example of expected results for each error code
   "opponent":TestOpponent,
   "isHome":true,
   "gameType":0,
-  "matchScore": [{
-    "homeTeam":4,
-    "awayTeam":"5",
+  "categories": [{
+    "homeTeamScore":4,
+    "awayTeamScore":"5",
   }],
   "created_at":"2019-11-20T14:33:58Z"
   "updated_at":"2019-11-20T14:33:58Z"
