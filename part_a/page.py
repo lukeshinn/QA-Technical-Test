@@ -18,7 +18,6 @@ class MainPage(BasePage):
         element = self.driver.find_element_by_class_name('login')
         element.click()
 
-
     def is_title_matches(self):
         """Verifies that the hardcoded text "Python" appears in page title"""
         return "Python" in self.driver.title
@@ -46,10 +45,5 @@ class LoginPage(BasePage):
 class ResponsePage(BasePage):
 
         def is_successful(self):
-            wait = WebDriverWait(self.driver, 10)
-            element = wait.until(EC.element_to_be_clickable((By.ID, 'someid')))
-            # result = self.driver.find_element_by_tag_name("pre")
 
-           # result = self.driver.find_element_by_xpath("//pre[contains(text(),'success')]")
-
-            return "error" not in self.driver.page_source
+           return "\"success\":true" in self.driver.page_source

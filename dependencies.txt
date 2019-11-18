@@ -9,3 +9,7 @@ pip install selenium
 brew cask install chromedriver
 
 pip install webdriver-manager
+
+pip install faker
+
+pip install nose requests

@@ -2,6 +2,7 @@ import unittest
 import HtmlTestRunner
 import config
 import page
+from faker import Faker
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -23,27 +24,17 @@ class PythonOrgSearch(unittest.TestCase):
         driver.get(config.url['login'])
         login_page = page.LoginPage(self.driver)
         login_page.fill_out_login_form(config.user['userName'], config.user['password'])
-        response_page = page.ResponsePage(self.driver)
-        response_page.is_successful()
+        response_page = page.ResponsePage(driver)
         assert response_page.is_successful(), 'Login was unsuccessful'
 
-
-#     def test_login_correct_credentials(self):
-        # driver = self.driver
-        # elem = driver.find_element_by_name("q")
-        # elem.send_keys("pycon")
-        # elem.send_keys(Keys.RETURN)
-        # assert "No results found." not in driver.page_source
-
-#     def test_search2_in_python_org(self):
-        # driver = self.driver
-        # elem = driver.find_element_by_name("q")
-        # elem.send_keys("gindlehelm")
-        # elem.send_keys(Keys.RETURN)
-        # # assert "No results found." not in driver.page_source
-
-        # main_page = page.MainPage(self.driver)
-        # assert main_page.is_title_matches(), "python.org title doesn't match."
+    def test_fake_login_credentials(self):
+        driver = self.driver
+        driver.get(config.url['login'])
+        login_page = page.LoginPage(self.driver)
+        fake = Faker()
+        login_page.fill_out_login_form(fake.name(), 'password')
+        response_page = page.ResponsePage(driver)
+        assert response_page.is_successful(), 'Login was unsuccessful'
 
 
     def tearDown(self):
