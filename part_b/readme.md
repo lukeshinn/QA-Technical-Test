@@ -1,5 +1,7 @@
 # GET
+
 **Description:** Look up schedule of a certain team
+
 | Request Method |      Endpoint |  Format |
 |----------|-------------|------------------------------------------|
 | GET |  {base.url}/teams/{sqlId}/schedule/{gameId}/entry/{opponentId} | JSON |
@@ -9,7 +11,9 @@
 | sqlId |  integer | unique identifier for each coach |
 | gameId |  integer | identifier for game/sport  |
 | opponentId |  integer | unique identifier for each opponent|
+
 #### Example Response
+
 Here is an example of expected results for each error code
 **Response code:** 200
 ```javascript
@@ -30,7 +34,9 @@ Here is an example of expected results for each error code
 **Response code:** 500 - browser could contain cached credentials
 
 # PUT
+
 **Description:** Update a single schedule of an event
+
 | Request Method |      Endpoint |  Format |
 |----------|-------------|------------------------------------------|
 | PUT |  {base.url}/teams/{sqlId}/schedule/{gameId}/entry/{opponentId} | JSON |
@@ -40,7 +46,9 @@ Here is an example of expected results for each error code
 | sqlId |  integer | unique identifier for each coach |
 | gameId |  integer | identifier for game/sport  |
 | opponentId |  integer | unique identifier for each opponent|
+
 #### Example Response
+
 **Response code:** 200
 ```javascript
 {
@@ -59,7 +67,9 @@ Here is an example of expected results for each error code
 **Response code:** 404 - user is logged in but one or more paramaters are invalid
 
 # POST
+
 **Description:** Create a new event
+
 | Request Method |      Endpoint |  Format |
 |----------|-------------|------------------------------------------|
 | POST |  {base.url}/teams/{sqlId}/schedule/{gameId}/entry/create | JSON |
@@ -69,7 +79,9 @@ Here is an example of expected results for each error code
 | sqlId |  integer | unique identifier for each coach |
 | gameId |  integer | identifier for game/sport  |
 | opponentId |  integer | unique identifier for each opponent|
+
 #### Example Response
+
 **Response code:** 200
 ```javascript
 {
@@ -90,7 +102,9 @@ Here is an example of expected results for each error code
 **Response code:** 404 - game has been removed
 
 # DELETE
+
 **Description:** Create a new event
+
 | Request Method |      Endpoint |  Format |
 |----------|-------------|------------------------------------------|
 | DELETE |  {base.url}/teams/{sqlId}/schedule/{gameId}/entry/{opponentId} | JSON |
