@@ -1,4 +1,5 @@
 from element import BasePageElement
+import config
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -28,7 +29,7 @@ class LoginPage(BasePage):
         userPass = None
 
         def check_for_login_form(self):
-            wait = WebDriverWait(self.driver, 5)
+            wait = WebDriverWait(self.driver, 4)
             login_form = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'login-container')))
             return login_form
 
@@ -39,11 +40,47 @@ class LoginPage(BasePage):
             input_submit = self.driver.find_element_by_id('logIn')
             input_email.send_keys(userId)
             input_password.send_keys(userPass)
-            input_submit.submit()
-            # print(self.driver.page_source)
+            input_submit.click()
+#             wait = WebDriverWait(self.driver, 10)
+            # element = wait.until(EC.element_to_be_clickable((By.ID, 'someid')))
+
+
+class element_has_css_class(object):
+
+  def __init__(self, locator, css_class):
+    self.locator = locator
+    self.css_class = css_class
+
+  def __call__(self, driver):
+    element = driver.find_element(*self.locator)   # Finding the referenced element
+    if self.css_class in element.get_attribute("class"):
+        return element
+    else:
+        return False
 
 class ResponsePage(BasePage):
 
-        def is_successful(self):
+        def check_for_user_nav(self):
+            wait = WebDriverWait(self.driver, 4)
+            try:
+                nav_is_present= wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@class="hui-globalusermenu"]')))
+                return True
+            except:
+                return False
 
-           return "\"success\":true" in self.driver.page_source
+        def check_for_user_nav(self):
+            wait = WebDriverWait(self.driver, 4)
+            try:
+                user_nav_is_present = wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@class="hui-globalusermenu"]')))
+                return True
+            except:
+                return False
+
+        def login_error_has_visible_class(self):
+            wait = WebDriverWait(self.driver, 4)
+            try:
+                # element = wait.until(element_has_css_class((By.XPATH, '//div[@class="login-error"]'), "fade-in-expand"))
+                user_nav_is_present = wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="login-error"]')))
+                return True
+            except:
+                return False
