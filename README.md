@@ -2,7 +2,7 @@
 Selenium and API testing examples
 
 ### Dependencies
-Here's what you need to have on your machine to run the selenium tests in the [part_a](part_a/readme.md) directory
+Here's what you need to have on your machine to run the selenium tests in the [part_a](part_a) directory
 python 2.7.10 >
 html-testRunner
 selenium
@@ -18,4 +18,6 @@ python get-pip.py
 ```
 
 after you have the pip package manager, if you are missing any of the dependencies above, you can run
+```
 pip install selenium chromedriver html-testRunner webdriver-manager
+```
