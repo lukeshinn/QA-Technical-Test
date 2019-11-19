@@ -46,7 +46,6 @@ class LoginPage(BasePage):
 
         def login_input_color_is_black(self):
             input_email_color = self.driver.find_element_by_id('logIn').value_of_css_property('color')
-            input_color = str(input_email_color)
             try:
                 input_email_color == "rgba(255, 255, 255, 1)"
                 return True

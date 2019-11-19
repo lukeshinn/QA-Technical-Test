@@ -59,6 +59,7 @@ class PythonOrgSearch(unittest.TestCase):
         driver.get(config.url['login'])
         login_page = page.LoginPage(self.driver)
         response_page = page.ResponsePage(driver)
+        # fill out form with a fake name and blank password
         login_page.fill_out_login_form(fake.name(), '')
         login_page.click_submit_button()
         assert response_page.login_error_has_visible_class(), 'Error message never received visible class'
