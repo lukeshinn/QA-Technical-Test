@@ -67,7 +67,6 @@ Here is an example of expected results for each error code
   "updated_at":"2019-11-20T14:33:58Z"
 }
 ```
-**Response code:** 404 - user is logged in but one or more paramaters are invalid
 
 # POST
 
