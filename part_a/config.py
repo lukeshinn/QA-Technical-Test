@@ -5,5 +5,5 @@ url = dict(
 
 user = dict(
     userName = 'luke.shinn.efp@gmail.com',
-    password = 'prismtank1',
+    password = 'password',
 )
